@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const exerciseSchema = new Schema ({
+const exerciseSchema = new Schema({
     type: {
         type: String,
         enum: ["resistance", "cardio"],
@@ -43,9 +43,9 @@ const exerciseSchema = new Schema ({
 function isRequired(field) {
     return function () {
         if (field == "distance") {
-        return this.type === "cardio";
+            return this.type === "cardio";
         } else {
-          return thid.type === "resistance";  
+            return thid.type === "resistance";
         }
     };
 }
@@ -53,11 +53,11 @@ function isRequired(field) {
 const workoutSchema = new Schema (
     {
         day: {
-            tyoe: Date,
+            type: Date,
             default: Date.now,
         },
 
-        exercise: [exerciseSchema],
+        exercises: [exerciseSchema],
     },
 
     {
@@ -65,3 +65,16 @@ const workoutSchema = new Schema (
         toJSON: { virtuals: true },
     }
 );
+
+
+workoutSchema.virtual("totalDuration").get(function () {
+    let totalDuration = 0;
+    this.exercises.forEach((el) => {
+        totalDuration += el.duration;
+    });
+    return totalDuration;
+});
+
+const Workout = mongoose.model("Workout", workoutSchema);
+
+module.exports = Workout;
