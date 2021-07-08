@@ -40,3 +40,28 @@ const exerciseSchema = new Schema ({
     },
 });
 
+function isRequired(field) {
+    return function () {
+        if (field == "distance") {
+        return this.type === "cardio";
+        } else {
+          return thid.type === "resistance";  
+        }
+    };
+}
+
+const workoutSchema = new Schema (
+    {
+        day: {
+            tyoe: Date,
+            default: Date.now,
+        },
+
+        exercise: [exerciseSchema],
+    },
+
+    {
+        toObject: { virtuals: true },
+        toJSON: { virtuals: true },
+    }
+);
