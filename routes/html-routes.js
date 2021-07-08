@@ -13,7 +13,7 @@ router.get("/stats", (req, res) => {
 
 
 router.get("/exercise", (req, res) => {
-    res.sendFile(path.join(__dirname + "/../public/stats.html"));
+    res.sendFile(path.join(__dirname + "/../public/exercise.html"));
 });
 
 
