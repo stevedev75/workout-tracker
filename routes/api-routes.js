@@ -2,7 +2,7 @@ const router = require("express").Router();
 const db = require("../models");
 
 
-router.get("/api/workouts", (rew, res) => {
+router.get("/api/workouts", (req, res) => {
     db.Workout.find({})
         .sort({ date: -1 })
         .then((workout) => {
@@ -14,7 +14,7 @@ router.get("/api/workouts", (rew, res) => {
 });
 
 
-router.get("api/workouts/range", (req, res) => {
+router.get("/api/workouts/range", (req, res) => {
     db.Workout.find({})
         .sort({ date: -1 })
         .then((workout) => {
