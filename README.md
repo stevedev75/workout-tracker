@@ -1,6 +1,6 @@
 # workout-tracker
 
-## My motivation for this project was to build a workout tracker using front end code given to us by the bootcamp and then adding back end code (specifially by creating models, routes, and the server.js file, along with a noSQYL database.. 
+## My motivation for this project was to build a workout tracker using front end code given to us by the bootcamp and then adding back end code (specifially by creating models, routes, and the server.js file, along with a noSQL database.. 
 
 #### I built this project, in part, to showcase my understanding of how to connect front end code to the back end using a noSQL database and then deploying it via Heroku using MongoAtlas.  
 
